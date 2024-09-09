@@ -10,22 +10,22 @@
 
 
 // arrays, objetos
-// let goals = ["Mayk", "alô"]
 
 let goal = {
   value: 'ler um livro por mês',
-  address: 2,
-  checked: false,
-  isChecked: (info) => {
-    console.log(info)
-  }
+  checked: true
 }
 
-goal.value = "não é mais ler um livro"
-goal.isChecked(goal.value)
+let goals = [
+  goal,
+  {
+    value: "caminhar 20 minutos todos os dias",
+    checked: false
+  }
+]
 
+console.log(goals[1].value)
 
 // function, arrow function
-const createGoal = () => {}
-
+// const createGoal = () => {}
 // function createGoal() {}
