@@ -38,12 +38,15 @@ Operador de concatenação: +
 
 ## Estruturas de dados
 
- - Arrays: uma lista que contém qualquer tipo de dado
- - Objetos:
-  . Atributos e métodos
-  . Criação e manipulação de objetos
-  . Acesso a propriedades de objetos
- - Functions:
-  . Criar, passar argumento
-  . Executar
-  . Arrow function/named function
+  - Arrays: uma lista que contém qualquer tipo de dado
+  - Objetos:
+    . Atributos e métodos
+    . Criação e manipulação de objetos
+    . Acesso a propriedades de objetos
+  - Functions:
+    . Criar, passar argumento
+    . Executar
+    . Arrow function/named function
+
+## Estrutura de repetição
+  - While
