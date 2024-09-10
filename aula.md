@@ -53,3 +53,7 @@ Operador de concatenação: +
 
 ## Condicionais
   - Switch
+
+## Módulos em Node.js
+  - Importação de módulos (requires, CommonJS)
+  - Biblioteca 'inquirer' para criar prompts interativos
