@@ -50,3 +50,6 @@ Operador de concatenação: +
 
 ## Estrutura de repetição
   - While
+
+## Condicionais
+  - Switch
