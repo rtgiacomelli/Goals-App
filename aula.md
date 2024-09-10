@@ -57,3 +57,6 @@ Operador de concatenação: +
 ## Módulos em Node.js
   - Importação de módulos (requires, CommonJS)
   - Biblioteca 'inquirer' para criar prompts interativos
+
+## Programação assíncrona e promises
+  - Uso de funções assíncronas (async/await)
