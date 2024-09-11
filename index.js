@@ -60,8 +60,24 @@ const goalsDone = async () => {
   }
 
   await select({
-    message: "Metas realizadas",
+    message: "Metas Realizadas",
     choices: [...done]
+  })
+}
+
+const goalsOpen = async () => {
+  const open = goals.filter((goal) => {
+    return !goal.checked
+  })
+
+  if(open.length == 0) {
+    console.log('Não existem metas abertas! :)')
+    return
+  }
+
+  await select({
+    message: "Metas Abertas " + open.length,
+    choices: [...open]
   })
 }
 
@@ -85,6 +101,10 @@ const start = async () => {
           value: "realizadas"
         },
         {
+          name: "Metas abertas",
+          value: "abertas"
+        },
+        {
           name: "Sair",
           value: "sair"
         }
@@ -102,6 +122,9 @@ const start = async () => {
       case "realizadas":
         await goalsDone()
         break
+      case "abertas":
+          await goalsOpen()
+          break
       case "sair":
         console.log("Até a próxima!")
         return
