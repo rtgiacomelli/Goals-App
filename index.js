@@ -1,13 +1,22 @@
 const { select, input, checkbox } = require('@inquirer/prompts')
+const fs = require("fs").promises
 
 let message = "Bem-vindo ao App de Metas!";
 
-let goal = {
-  value: 'Tomar 3L de água por dia',
-  checked: false,
+let goals
+
+const loadGoals = async () => {
+  try {
+    const data = await fs.readFile("goals.json", "utf-8")
+    goals = JSON.parse(data)
+  } catch(error) {
+    goals = []
+  }
 }
 
-let goals = [ goal ]
+const saveGoals = async () => {
+  await fs.writeFile("goals.json", JSON.stringify(goals, null, 2))
+}
 
 const registerGoal = async () => {
   const goal = await input({ message: "Digite a meta:" })
@@ -26,6 +35,11 @@ const registerGoal = async () => {
 }
 
 const listGoals = async () => {
+  if(goals.length == 0) {
+    message = "Não existem metas!"
+    return
+  }
+
   const answers = await checkbox({
     message: "Use as Setas para mudar de meta, o Espaço para marcar ou desmarcar e o Enter para finalizar essa etapa",
     choices: [...goals],
@@ -54,6 +68,11 @@ const listGoals = async () => {
 }
 
 const goalsDone = async () => {
+  if(goals.length == 0) {
+    message = "Não existem metas!"
+    return
+  }
+
   const done = goals.filter((goal) => {
     return goal.checked
   })
@@ -70,6 +89,11 @@ const goalsDone = async () => {
 }
 
 const goalsOpen = async () => {
+  if(goals.length == 0) {
+    message = "Não existem metas!"
+    return
+  }
+
   const open = goals.filter((goal) => {
     return !goal.checked
   })
@@ -86,6 +110,11 @@ const goalsOpen = async () => {
 }
 
 const deleteGoals = async () => {
+  if(goals.length == 0) {
+    message = "Não existem metas!"
+    return
+  }
+
   const uncheckedGoals = goals.map((goal) => {
     return { value: goal.value, checked: false }
   })
@@ -121,9 +150,11 @@ const showMessage = () => {
 }
 
 const start = async () => {
-  
+  await loadGoals()
+
   while(true) {
     showMessage()
+    await saveGoals()
     
     const option = await select ({
       message: "Menu >",

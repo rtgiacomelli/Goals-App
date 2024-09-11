@@ -61,6 +61,12 @@ Spread operator: ...
 ## Módulos em Node.js
   - Importação de módulos (requires, CommonJS)
   - Biblioteca 'inquirer' para criar prompts interativos
+  - FS (File System)
+
+## JSON
+  - JavaScript Object Notation (.json)
+    . JSON.parse(): transforma de JSON para JS
+    . JSON.stringfy(): transforma de JS para JSON
 
 ## Programação assíncrona e promises
   - Uso de funções assíncronas (async/await)
