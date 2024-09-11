@@ -60,7 +60,7 @@ const goalsDone = async () => {
   }
 
   await select({
-    message: "Metas Realizadas",
+    message: "Metas Realizadas: " + done.length,
     choices: [...done]
   })
 }
@@ -76,9 +76,34 @@ const goalsOpen = async () => {
   }
 
   await select({
-    message: "Metas Abertas " + open.length,
+    message: "Metas Abertas: " + open.length,
     choices: [...open]
   })
+}
+
+const deleteGoals = async () => {
+  const uncheckedGoals = goals.map((goal) => {
+    return { value: goal.value, checked: false }
+  })
+
+  const goalsToDelete = await checkbox({
+    message: "Selecione meta(s) para deletar",
+    choices: [...uncheckedGoals],
+    instructions: false
+  })
+
+  if(goalsToDelete.length == 0) {
+    console.log("Nenhuma meta para deletar.")
+    return
+  }
+
+  goalsToDelete.forEach((item) => {
+    goals = goals.filter ((goal) => {
+      return goal.value != item
+    })
+  })
+
+  console.log("Meta(s) deletada(s) com sucesso!")
 }
 
 const start = async () => {
@@ -105,6 +130,10 @@ const start = async () => {
           value: "abertas"
         },
         {
+          name: "Deletar metas",
+          value: "deletar"
+        },
+        {
           name: "Sair",
           value: "sair"
         }
@@ -123,8 +152,11 @@ const start = async () => {
         await goalsDone()
         break
       case "abertas":
-          await goalsOpen()
-          break
+        await goalsOpen()
+        break
+      case "deletar":
+        await deleteGoals()
+        break
       case "sair":
         console.log("Até a próxima!")
         return
