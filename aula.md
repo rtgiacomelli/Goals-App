@@ -36,10 +36,12 @@ Boolean: true, false
 Operador de atribuição de valor: =
 Operador de concatenação: +
 Operador de comparação: == != < > <= >=
+Spread operator: ...
 
 ## Estruturas de dados
 
   - Arrays: uma lista que contém qualquer tipo de dado
+    . Métodos de array: push, [find, forEach, filter] : HOF (Higher Order Functions)
   - Objetos:
     . Atributos e métodos
     . Criação e manipulação de objetos
