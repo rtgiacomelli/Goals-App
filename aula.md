@@ -17,14 +17,14 @@ Como um lego, você irá utilizar peças para criar algoritmos, ou seja, para re
 
 ## Fases da resolução de um problema
 
-  Coletar os dados
-  Processar os dados (manipular, alterar...)
-  Apresentar os dados
+Coletar os dados
+Processar os dados (manipular, alterar...)
+Apresentar os dados
 
 ## Escopo e variáveis
 
-  Variáveis globais e locais
-  Constantes
+Variáveis globais e locais
+Constantes
 
 ## Tipos de dados
 
@@ -41,7 +41,7 @@ Spread operator: ...
 ## Estruturas de dados
 
   - Arrays: uma lista que contém qualquer tipo de dado
-    . Métodos de array: push, [find, forEach, filter] : HOF (Higher Order Functions)
+    . Métodos de array: push, [find, forEach, filter, map] : HOF (Higher Order Functions)
   - Objetos:
     . Atributos e métodos
     . Criação e manipulação de objetos
